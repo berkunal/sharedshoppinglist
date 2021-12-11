@@ -10,13 +10,14 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/shopping-lists")
+@CrossOrigin(origins = "http://localhost:4200")
 public class ShoppingListController {
 
     @Autowired
     ShoppingListService shoppingListService;
 
     @GetMapping()
-    public List<ShoppingList> getShoppingList() {
+    public List<ShoppingList> getShoppingLists() {
         return shoppingListService.getShoppingLists();
     }
 
