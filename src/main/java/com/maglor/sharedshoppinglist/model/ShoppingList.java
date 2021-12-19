@@ -1,5 +1,6 @@
 package com.maglor.sharedshoppinglist.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
@@ -11,6 +12,7 @@ import java.util.UUID;
 @Entity
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "shopping_lists")
 public class ShoppingList {
     @Id
@@ -32,4 +34,11 @@ public class ShoppingList {
     @NonNull
     @ManyToMany
     private List<User> users;
+
+    public ShoppingList(@NonNull String name, String description, @NonNull List<SubShoppingList> subShoppingLists, @NonNull List<User> users) {
+        this.name = name;
+        this.description = description;
+        this.subShoppingLists = subShoppingLists;
+        this.users = users;
+    }
 }

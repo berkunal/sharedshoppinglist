@@ -1,6 +1,6 @@
 package com.maglor.sharedshoppinglist.controller;
 
-import com.maglor.sharedshoppinglist.model.ShoppingList;
+import com.maglor.sharedshoppinglist.dto.ShoppingListDto;
 import com.maglor.sharedshoppinglist.service.ShoppingListService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -17,23 +17,23 @@ public class ShoppingListController {
     ShoppingListService shoppingListService;
 
     @GetMapping()
-    public List<ShoppingList> getShoppingLists() {
+    public List<ShoppingListDto> getShoppingLists() {
         return shoppingListService.getShoppingLists();
     }
 
     @GetMapping("/{id}")
-    public ShoppingList getShoppingList(@PathVariable String id) {
+    public ShoppingListDto getShoppingList(@PathVariable String id) {
         return shoppingListService.getShoppingList(UUID.fromString(id));
     }
 
     @PostMapping()
-    public ShoppingList createShoppingList(@RequestBody ShoppingList shoppingList) {
-        return shoppingListService.createShoppingList(shoppingList);
+    public ShoppingListDto createShoppingList(@RequestBody ShoppingListDto shoppingListDto) {
+        return shoppingListService.createShoppingList(shoppingListDto);
     }
 
     @PutMapping()
-    public ShoppingList updateShoppingList(@RequestBody ShoppingList shoppingList) {
-        return shoppingListService.updateShoppingList(shoppingList);
+    public ShoppingListDto updateShoppingList(@RequestBody ShoppingListDto shoppingListDto) {
+        return shoppingListService.updateShoppingList(shoppingListDto);
     }
 
     @DeleteMapping("/{id}")

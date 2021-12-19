@@ -1,5 +1,6 @@
 package com.maglor.sharedshoppinglist.controller;
 
+import com.maglor.sharedshoppinglist.dto.UserDto;
 import com.maglor.sharedshoppinglist.model.LoginForm;
 import com.maglor.sharedshoppinglist.model.User;
 import com.maglor.sharedshoppinglist.service.UserService;
@@ -18,23 +19,23 @@ public class UserController {
     UserService userService;
 
     @GetMapping()
-    public List<User> getUsers() {
+    public List<UserDto> getUsers() {
         return userService.getUsers();
     }
 
     @GetMapping("/{id}")
-    public User getUserById(@PathVariable String id) {
+    public UserDto getUserById(@PathVariable String id) {
         return userService.getUserById(UUID.fromString(id));
     }
 
     @PostMapping()
-    public User createUser(@RequestBody User user) {
-        return userService.createUser(user);
+    public UserDto createUser(@RequestBody UserDto userDto) {
+        return userService.createUser(userDto);
     }
 
     @PutMapping()
-    public User updateUser(@RequestBody User user) {
-        return userService.updateUser(user);
+    public UserDto updateUser(@RequestBody UserDto userDto) {
+        return userService.updateUser(userDto);
     }
 
     @DeleteMapping("/{id}")

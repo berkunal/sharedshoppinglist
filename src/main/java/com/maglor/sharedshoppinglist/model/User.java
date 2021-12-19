@@ -4,6 +4,7 @@ import lombok.*;
 import org.hibernate.Hibernate;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
@@ -33,6 +34,12 @@ public class User {
     @ManyToMany
     @ToString.Exclude
     private List<ShoppingList> shoppingLists;
+
+    public User(@NonNull String name, @NonNull String password, @NonNull List<ShoppingList> shoppingLists) {
+        this.name = name;
+        this.password = password;
+        this.shoppingLists = shoppingLists;
+    }
 
     @Override
     public boolean equals(Object o) {
