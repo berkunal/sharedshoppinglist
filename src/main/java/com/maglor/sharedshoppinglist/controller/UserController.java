@@ -1,5 +1,6 @@
 package com.maglor.sharedshoppinglist.controller;
 
+import com.maglor.sharedshoppinglist.model.LoginForm;
 import com.maglor.sharedshoppinglist.model.User;
 import com.maglor.sharedshoppinglist.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,5 +40,10 @@ public class UserController {
     @DeleteMapping("/{id}")
     public void deleteUser(@PathVariable String id) {
         userService.deleteUser(UUID.fromString(id));
+    }
+
+    @PostMapping("/authenticate")
+    public User authenticate(@RequestBody LoginForm form ) {
+        return userService.authenticate(form);
     }
 }

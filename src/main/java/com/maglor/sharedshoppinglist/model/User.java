@@ -1,15 +1,18 @@
 package com.maglor.sharedshoppinglist.model;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
+import lombok.*;
+import org.hibernate.Hibernate;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 
 @Entity
-@Data
+@Getter
+@Setter
+@ToString
+@RequiredArgsConstructor
 @NoArgsConstructor
 @Table(name = "users")
 public class User {
@@ -19,10 +22,28 @@ public class User {
     private UUID id;
 
     @NonNull
-    @Column(name = "name")
+    @Column(name = "name", unique = true)
     private String name;
 
     @NonNull
+    @Column(name = "password")
+    private String password;
+
+    @NonNull
     @ManyToMany
+    @ToString.Exclude
     private List<ShoppingList> shoppingLists;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        User user = (User) o;
+        return Objects.equals(id, user.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
+    }
 }

@@ -4,19 +4,30 @@ import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {ShoppingListCardComponent} from './shopping-list-card/shopping-list-card.component';
+import {ShoppingListCardComponent} from './components/shopping-list-card/shopping-list-card.component';
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
 import {MainViewComponent} from './main-view/main-view.component';
 import {MatCardModule} from "@angular/material/card";
 import {HttpClientModule} from "@angular/common/http";
+import { LoginViewComponent } from './login-view/login-view.component';
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { SnackBarComponent } from './components/snack-bar/snack-bar.component';
+import {MatSnackBarModule} from "@angular/material/snack-bar";
+import {MatMenuModule} from "@angular/material/menu";
+import { SignupViewComponent } from './signup-view/signup-view.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ShoppingListCardComponent,
-    MainViewComponent
+    MainViewComponent,
+    LoginViewComponent,
+    SnackBarComponent,
+    SignupViewComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +37,13 @@ import {HttpClientModule} from "@angular/common/http";
     MatButtonModule,
     MatIconModule,
     MatCardModule,
-    HttpClientModule
+    HttpClientModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatSnackBarModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
