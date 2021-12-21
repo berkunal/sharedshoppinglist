@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {ShoppingListDto} from "../../model/shopping-list-dto.model";
 
 @Component({
   selector: 'app-shopping-list-card',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./shopping-list-card.component.scss']
 })
 export class ShoppingListCardComponent implements OnInit {
+
+  @Input() shoppingList: ShoppingListDto | undefined;
 
   constructor() { }
 

@@ -19,6 +19,9 @@ import { SnackBarComponent } from './components/snack-bar/snack-bar.component';
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {MatMenuModule} from "@angular/material/menu";
 import { SignupViewComponent } from './signup-view/signup-view.component';
+import { AddNewShoppingListDialogComponent } from './components/add-new-shopping-list-dialog/add-new-shopping-list-dialog.component';
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatBadgeModule} from "@angular/material/badge";
 
 @NgModule({
   declarations: [
@@ -27,7 +30,8 @@ import { SignupViewComponent } from './signup-view/signup-view.component';
     MainViewComponent,
     LoginViewComponent,
     SnackBarComponent,
-    SignupViewComponent
+    SignupViewComponent,
+    AddNewShoppingListDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +47,9 @@ import { SignupViewComponent } from './signup-view/signup-view.component';
     FormsModule,
     ReactiveFormsModule,
     MatSnackBarModule,
-    MatMenuModule
+    MatMenuModule,
+    MatDialogModule,
+    MatBadgeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
