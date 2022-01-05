@@ -7,7 +7,9 @@
     </button>
   </mat-card-header>
   <!--  TODO: Assign random patterns or images here  -->
-  <img mat-card-image src="https://media.timeout.com/images/105041644/750/422/image.jpg" alt="groceries">
+
+  <img mat-card-image (click)="onCardImageClick()" class="card-image" src="https://media.timeout.com/images/105041644/750/422/image.jpg" alt="groceries">
+
   <mat-card-content>
     <p>{{shoppingList?.description}}</p>
   </mat-card-content>

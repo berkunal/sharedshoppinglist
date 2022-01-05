@@ -8,6 +8,8 @@ import {UserService} from "../../service/user/user.service";
 import {first} from "rxjs";
 import {SnackBarComponent} from "../snack-bar/snack-bar.component";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {ShoppingListContentDialogComponent} from "../shopping-list-content-dialog/shopping-list-content-dialog.component";
+import {ShoppingListContent} from "../../model/shopping-list-content.model";
 
 @Component({
   selector: 'app-shopping-list-card',
@@ -66,10 +68,13 @@ export class ShoppingListCardComponent implements OnInit {
                 });
               } else if (this.shoppingList) {
                 this.shoppingList.users.push(user);
-                console.log(this.shoppingList)
+
                 this.shoppingListService.updateShoppingList(this.shoppingList).pipe(first()).subscribe({
-                  next: value => {
-                    console.log(value);
+                  next: () => {
+                    this._snackbar.openFromComponent(SnackBarComponent, {
+                      duration: 3000,
+                      data: user.name + ' have been added to the list!'
+                    });
                   },
                   error: () => {
                     this._snackbar.openFromComponent(SnackBarComponent, {
@@ -86,6 +91,38 @@ export class ShoppingListCardComponent implements OnInit {
               this._snackbar.openFromComponent(SnackBarComponent, {duration: 3000, data: 'Something went wrong!'});
             }
           });
+      }
+    });
+  }
+
+  onCardImageClick() {
+    const dialogRef = this.dialog.open(ShoppingListContentDialogComponent, {
+      data: {
+        shoppingList: this.shoppingList,
+        updated: false
+      }
+    });
+
+    dialogRef.afterClosed().subscribe((value: ShoppingListContent) => {
+      if (!value) return
+
+      if (!value.updated) {
+        this._snackbar.openFromComponent(SnackBarComponent, {duration: 3000, data: 'Nothing to be updated!'});
+      } else {
+        this.shoppingListService.updateShoppingList(value.shoppingList).pipe(first()).subscribe({
+          next: () => {
+            this._snackbar.openFromComponent(SnackBarComponent, {
+              duration: 3000,
+              data: 'List successfully updated!'
+            });
+          },
+          error: () => {
+            this._snackbar.openFromComponent(SnackBarComponent, {
+              duration: 3000,
+              data: 'Something went wrong!'
+            });
+          }
+        });
       }
     });
   }

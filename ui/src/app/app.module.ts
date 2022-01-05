@@ -23,6 +23,11 @@ import { AddNewShoppingListDialogComponent } from './components/add-new-shopping
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatBadgeModule} from "@angular/material/badge";
 import { AddUserDialogComponent } from './components/add-user-dialog/add-user-dialog.component';
+import { ShoppingListContentDialogComponent } from './components/shopping-list-content-dialog/shopping-list-content-dialog.component';
+import {MatExpansionModule} from "@angular/material/expansion";
+import {MatListModule} from "@angular/material/list";
+import { AppSubShoppingListDialogComponent } from './components/app-sub-shopping-list-dialog/app-sub-shopping-list-dialog.component';
+import { AddNewItemDialogComponent } from './components/add-new-item-dialog/add-new-item-dialog.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +38,10 @@ import { AddUserDialogComponent } from './components/add-user-dialog/add-user-di
     SnackBarComponent,
     SignupViewComponent,
     AddNewShoppingListDialogComponent,
-    AddUserDialogComponent
+    AddUserDialogComponent,
+    ShoppingListContentDialogComponent,
+    AppSubShoppingListDialogComponent,
+    AddNewItemDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +59,9 @@ import { AddUserDialogComponent } from './components/add-user-dialog/add-user-di
     MatSnackBarModule,
     MatMenuModule,
     MatDialogModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatExpansionModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
