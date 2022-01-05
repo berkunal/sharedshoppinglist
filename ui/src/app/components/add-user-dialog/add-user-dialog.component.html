@@ -1,0 +1,14 @@
+<h1 mat-dialog-title>Add a New Member to Shopping List</h1>
+
+<div mat-dialog-content class="dialog-content">
+  <mat-form-field appearance="fill" class="form-item">
+    <mat-label>User Name</mat-label>
+    <input matInput [formControl]="username" required>
+    <mat-error *ngIf="username.invalid">{{getUsernameErrorMessage()}}</mat-error>
+  </mat-form-field>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="onAddClick()">Add</button>
+</div>

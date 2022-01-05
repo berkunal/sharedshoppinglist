@@ -2,3 +2,14 @@
   max-width: 400px;
   margin: 16px;
 }
+
+.user-icon {
+  display: flex;
+  flex-direction: column;
+  margin-right: 6px;
+  margin-left: 6px;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}

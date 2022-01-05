@@ -15,6 +15,7 @@ import {first} from "rxjs";
 export class SignupViewComponent implements OnInit {
 
   name = new FormControl('', [Validators.required]);
+  email = new FormControl('', [Validators.required, Validators.email]);
   password = new FormControl('', [Validators.required]);
   hide = true;
 
@@ -32,17 +33,28 @@ export class SignupViewComponent implements OnInit {
     return this.name.hasError('required') ? 'You must enter a value' : '';
   }
 
+  getEmailErrorMessage() {
+    if (this.email.hasError('required')) {
+      return 'You must enter a value'
+    } else if (this.email.hasError('email')) {
+      return 'You must enter a valid e-mail'
+    }
+    return '';
+  }
+
   getPasswordErrorMessage() {
     return this.password.hasError('required') ? 'You must enter a value' : '';
   }
 
   onSignupClick() {
     this.name.markAllAsTouched();
+    this.email.markAllAsTouched();
     this.password.markAllAsTouched();
 
-    if (this.name.value && this.password.value) {
+    if (this.name.value && this.email.value && this.password.value) {
       const user: User = {
         name: this.name.value,
+        email: this.email.value,
         password: this.password.value,
         shoppingLists: []
       }
@@ -59,7 +71,7 @@ export class SignupViewComponent implements OnInit {
           }
         });
     } else {
-      this.openSnackBar('Please provide username and password!');
+      this.openSnackBar('Please provide the required fields!');
     }
   }
 

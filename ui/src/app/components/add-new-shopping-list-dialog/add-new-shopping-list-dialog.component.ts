@@ -5,9 +5,6 @@ import {FormControl, Validators} from "@angular/forms";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {SnackBarComponent} from "../snack-bar/snack-bar.component";
 
-class DialogOverviewExampleDialog {
-}
-
 @Component({
   selector: 'app-add-new-shopping-list-dialog',
   templateUrl: './add-new-shopping-list-dialog.component.html',
@@ -19,7 +16,7 @@ export class AddNewShoppingListDialogComponent {
   description = new FormControl('', [Validators.maxLength(256)]);
 
   constructor(
-    public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
+    public dialogRef: MatDialogRef<AddNewShoppingListDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: AddNewShoppingListForm,
     private _snackBar: MatSnackBar
   ) {
@@ -37,7 +34,7 @@ export class AddNewShoppingListDialogComponent {
     return this.listName.hasError('maxLength') ? 'Too long!' : '';
   }
 
-  wtf() {
+  onConfirmClick() {
     if (this.listName.hasError('required')) {
       this._snackBar.openFromComponent(SnackBarComponent, {duration: 3000, data: 'Please fill the form!'});
     } else {

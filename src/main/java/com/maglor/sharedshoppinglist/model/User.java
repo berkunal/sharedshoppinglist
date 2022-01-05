@@ -1,10 +1,10 @@
 package com.maglor.sharedshoppinglist.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import org.hibernate.Hibernate;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
@@ -20,6 +20,7 @@ public class User {
     @Id
     @NonNull
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "user_id")
     private UUID id;
 
     @NonNull
@@ -27,16 +28,26 @@ public class User {
     private String name;
 
     @NonNull
+    @Column(name = "email", unique = true)
+    private String email;
+
+    @NonNull
     @Column(name = "password")
     private String password;
 
     @NonNull
-    @ManyToMany
+    @JsonIgnore
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @ToString.Exclude
+    @JoinTable(
+            name = "shopping_lists_of_user",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "shopping_list_id"))
     private List<ShoppingList> shoppingLists;
 
-    public User(@NonNull String name, @NonNull String password, @NonNull List<ShoppingList> shoppingLists) {
+    public User(@NonNull String name, @NonNull String email, @NonNull String password, @NonNull List<ShoppingList> shoppingLists) {
         this.name = name;
+        this.email = email;
         this.password = password;
         this.shoppingLists = shoppingLists;
     }

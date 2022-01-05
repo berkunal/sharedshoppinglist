@@ -18,3 +18,11 @@
   bottom: 0;
   margin: 16px;
 }
+
+.list-card-container {
+  flex-grow: 1;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  overflow: auto;
+}

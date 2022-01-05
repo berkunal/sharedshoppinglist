@@ -35,6 +35,14 @@ public class UserService {
         return mapper.toDto(user);
     }
 
+    public UserDto getUserByName(String username) {
+        User user = userRepository.findByName(username);
+        if (user == null) {
+            return null;
+        }
+        return mapper.toDto(user);
+    }
+
     public UserDto createUser(UserDto userDto) {
         return mapper.toDto(userRepository.save(mapper.toNewUser(userDto)));
     }

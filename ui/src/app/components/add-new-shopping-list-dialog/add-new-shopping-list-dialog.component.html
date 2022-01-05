@@ -12,24 +12,9 @@
     <input matInput [formControl]="description">
     <mat-error *ngIf="description.invalid">{{getDescriptionNameErrorMessage()}}</mat-error>
   </mat-form-field>
-
-  <div class="user-list-container">
-    <div class="user-info">
-      <button mat-icon-button>
-        <mat-icon style="transform: scale(2)" color="accent">account_circle</mat-icon>
-      </button>
-      <h4>{{data.username}}(You)</h4>
-    </div>
-    <div class="user-info">
-      <button mat-icon-button><!--TODO: Implement logic-->
-        <mat-icon color="primary">add</mat-icon>
-      </button>
-      <h4>Add User</h4>
-    </div>
-  </div>
 </div>
 
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">Cancel</button>
-  <button mat-raised-button color="primary" (click)="wtf()">Confirm</button>
+  <button mat-raised-button color="primary" (click)="onConfirmClick()">Confirm</button>
 </div>

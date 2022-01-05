@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>X:/sharedshoppinglist/src/main/java/com/maglor/sharedshoppinglist</OriginalElement>
+  <nodes>
+    <node x="100.26772388059703" y="512.0">com.maglor.sharedshoppinglist.dto.ShoppingListInfo</node>
+    <node x="737.0419776119404" y="0.0">com.maglor.sharedshoppinglist.model.Item</node>
+    <node x="671.1427238805979" y="1365.0">com.maglor.sharedshoppinglist.service.UserService</node>
+    <node x="948.142723880598" y="1640.0">com.maglor.sharedshoppinglist.controller.ShoppingListController</node>
+    <node x="16.5" y="1104.0">com.maglor.sharedshoppinglist.model.LoginForm</node>
+    <node x="776.8927238805969" y="1104.5">com.maglor.sharedshoppinglist.dto.Mapper</node>
+    <node x="900.1427238805979" y="1376.0">com.maglor.sharedshoppinglist.service.ShoppingListService</node>
+    <node x="850.2919776119404" y="316.5">com.maglor.sharedshoppinglist.repository.ItemRepository</node>
+    <node x="387.267723880597" y="602.0">com.maglor.sharedshoppinglist.repository.SubShoppingListRepository</node>
+    <node x="446.16697761194035" y="1159.5">com.maglor.sharedshoppinglist.repository.UserRepository</node>
+    <node x="1234.791977611941" y="807.0">com.maglor.sharedshoppinglist.dto.ShoppingListDto</node>
+    <node x="641.267723880597" y="523.0">com.maglor.sharedshoppinglist.model.User</node>
+    <node x="1278.6669776119402" y="523.0">com.maglor.sharedshoppinglist.dto.UserInfo</node>
+    <node x="658.2919776119404" y="283.0">com.maglor.sharedshoppinglist.model.SubShoppingList</node>
+    <node x="544.6427238805979" y="1629.0">com.maglor.sharedshoppinglist.controller.UserController</node>
+    <node x="882.375" y="807.0">com.maglor.sharedshoppinglist.model.ShoppingList</node>
+    <node x="151.0" y="818.0">com.maglor.sharedshoppinglist.dto.UserDto</node>
+    <node x="1224.1669776119402" y="1172.0">com.maglor.sharedshoppinglist.repository.ShoppingListRepository</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.maglor.sharedshoppinglist.dto.Mapper" target="com.maglor.sharedshoppinglist.model.ShoppingList" relationship="CREATE">
+      <point x="0.0" y="-83.0" />
+      <point x="937.3927238805969" y="1072.0" />
+      <point x="949.125" y="1072.0" />
+      <point x="-66.75" y="116.5" />
+    </edge>
+    <edge source="com.maglor.sharedshoppinglist.repository.SubShoppingListRepository" target="com.maglor.sharedshoppinglist.model.SubShoppingList" relationship="DEPENDENCY">
+      <point x="0.0" y="-15.5" />
+      <point x="504.267723880597" y="491.0" />
+      <point x="738.7919776119404" y="491.0" />
+      <point x="738.7919776119404" y="471.0" />
+      <point x="701.2919776119404" y="471.0" />
+      <point x="-43.0" y="83.5" />
+    </edge>
+    <edge source="com.maglor.sharedshoppinglist.controller.UserController" target="com.maglor.sharedshoppinglist.model.User" relationship="DEPENDENCY">
+      <point x="-51.75" y="-95.0" />
+      <point x="596.3927238805979" y="1608.0" />
+      <point x="245.16697761194132" y="1608.0" />
+      <point x="245.16697761194132" y="1598.0" />
+      <point x="6.0" y="1598.0" />
+      <point x="6.0" y="785.0" />
+      <point x="459.75000000000006" y="785.0" />
+      <point x="459.75000000000006" y="745.0" />
+      <point x="679.1010572139303" y="745.0" />
+      <point x="-75.66666666666674" y="94.5" />
+    </edge>
+    <edge source="com.maglor.sharedshoppinglist.service.ShoppingListService" target="com.maglor.sharedshoppinglist.dto.Mapper" relationship="DEPENDENCY">
+      <point x="85.49999999999977" y="-95.0" />
+      <point x="1156.6427238805977" y="1343.0" />
+      <point x="1298.8927238805977" y="1343.0" />
+      <point x="1298.8927238805977" y="1303.0" />
+      <point x="947.1427238805978" y="1303.0" />
+      <point x="947.1427238805978" y="1293.0" />
+      <point x="1017.6427238805969" y="1293.0" />
+      <point x="80.25" y="83.0" />
+    </edge>
+    <edge source="com.maglor.sharedshoppinglist.dto.Mapper" target="com.maglor.sharedshoppinglist.model.User" relationship="CREATE">
+      <point x="0.0" y="-83.0" />
+      <point x="937.3927238805969" y="1072.0" />
+      <point x="848.5" y="1072.0" />
+      <point x="848.5" y="785.0" />
+      <point x="754.767723880597" y="785.0" />
+      <point x="0.0" y="94.5" />
+    </edge>
+    <edge source="com.maglor.sharedshoppinglist.service.UserService" target="com.maglor.sharedshoppinglist.repository.UserRepository" relationship="DEPENDENCY">
+      <point x="-52.25" y="-106.0" />
+      <point x="723.392723880598" y="1343.0" />
+      <point x="507.5419776119413" y="1343.0" />
+      <point x="507.5419776119413" y="1303.0" />
+      <point x="491.16697761194035" y="1303.0" />
+      <point x="-45.0" y="28.0" />
+    </edge>
+    <edge source="com.maglor.sharedshoppinglist.controller.ShoppingListController" target="com.maglor.sharedshoppinglist.service.ShoppingListService" relationship="DEPENDENCY">
+      <point x="85.5" y="-84.0" />
+      <point x="1204.642723880598" y="1608.0" />
+      <point x="1124.142723880598" y="1608.0" />
+      <point x="1124.142723880598" y="1598.0" />
+      <point x="1156.642723880598" y="1598.0" />
+      <point x="85.5" y="95.0" />
+    </edge>
+    <edge source="com.maglor.sharedshoppinglist.controller.UserController" target="com.maglor.sharedshoppinglist.service.UserService" relationship="TO_ONE">
+      <point x="51.75" y="-95.0" />
+      <point x="699.8927238805979" y="1608.0" />
+      <point x="827.892723880598" y="1608.0" />
+      <point x="52.25" y="106.0" />
+    </edge>
+    <edge source="com.maglor.sharedshoppinglist.model.ShoppingList" target="com.maglor.sharedshoppinglist.model.SubShoppingList" relationship="TO_MANY">
+      <point x="66.75" y="-116.5" />
+      <point x="1082.625" y="785.0" />
+      <point x="1021.125" y="785.0" />
+      <point x="1021.375" y="481.0" />
+      <point x="937.0419776119404" y="481.0" />
+      <point x="937.0419776119404" y="471.0" />
+      <point x="787.2919776119404" y="471.0" />
+      <point x="43.0" y="83.5" />
+    </edge>
+    <edge source="com.maglor.sharedshoppinglist.dto.Mapper" target="com.maglor.sharedshoppinglist.dto.ShoppingListInfo" relationship="CREATE">
+      <point x="0.0" y="-83.0" />
+      <point x="937.3927238805969" y="1072.0" />
+      <point x="721.1847014925384" y="1072.0" />
+      <point x="721.1847014925384" y="765.0" />
+      <point x="322.76772388059703" y="765.0" />
+      <point x="89.0" y="105.5" />
+    </edge>
+    <edge source="com.maglor.sharedshoppinglist.service.ShoppingListService" target="com.maglor.sharedshoppinglist.repository.ShoppingListRepository" relationship="TO_ONE">
+      <point x="-85.50000000000011" y="-95.0" />
+      <point x="985.6427238805977" y="1343.0" />
+      <point x="982.2677238805978" y="1343.0" />
+      <point x="982.2677238805978" y="1333.0" />
+      <point x="1276.4169776119402" y="1333.0" />
+      <point x="-52.25" y="15.5" />
+    </edge>
+    <edge source="com.maglor.sharedshoppinglist.repository.UserRepository" target="com.maglor.sharedshoppinglist.model.User" relationship="DEPENDENCY">
+      <point x="0.0" y="-28.0" />
+      <point x="536.1669776119404" y="785.0" />
+      <point x="459.75000000000006" y="785.0" />
+      <point x="459.75000000000006" y="745.0" />
+      <point x="679.1010572139303" y="745.0" />
+      <point x="-75.66666666666674" y="94.5" />
+    </edge>
+    <edge source="com.maglor.sharedshoppinglist.dto.Mapper" target="com.maglor.sharedshoppinglist.dto.UserDto" relationship="CREATE">
+      <point x="0.0" y="-83.0" />
+      <point x="937.3927238805969" y="1072.0" />
+      <point x="337.0" y="1072.0" />
+      <point x="62.0" y="105.5" />
+    </edge>
+    <edge source="com.maglor.sharedshoppinglist.controller.UserController" target="com.maglor.sharedshoppinglist.service.UserService" relationship="DEPENDENCY">
+      <point x="-51.75" y="-95.0" />
+      <point x="596.3927238805979" y="1608.0" />
+      <point x="245.16697761194132" y="1608.0" />
+      <point x="245.16697761194132" y="1598.0" />
+      <point x="723.3927238805979" y="1598.0" />
+      <point x="-52.25" y="106.0" />
+    </edge>
+    <edge source="com.maglor.sharedshoppinglist.service.ShoppingListService" target="com.maglor.sharedshoppinglist.repository.ShoppingListRepository" relationship="DEPENDENCY">
+      <point x="85.49999999999977" y="-95.0" />
+      <point x="1156.6427238805977" y="1343.0" />
+      <point x="1298.8927238805977" y="1343.0" />
+      <point x="1298.8927238805977" y="1293.0" />
+      <point x="1380.9169776119402" y="1293.0" />
+      <point x="52.25" y="15.5" />
+    </edge>
+    <edge source="com.maglor.sharedshoppinglist.service.ShoppingListService" target="com.maglor.sharedshoppinglist.dto.ShoppingListDto" relationship="DEPENDENCY">
+      <point x="85.49999999999977" y="-95.0" />
+      <point x="1156.6427238805977" y="1343.0" />
+      <point x="1298.8927238805977" y="1343.0" />
+      <point x="1298.8927238805977" y="1293.0" />
+      <point x="1443.6669776119402" y="1293.0" />
+      <point x="1443.6669776119402" y="1082.0" />
+      <point x="1491.6669776119402" y="1082.0" />
+      <point x="1491.6669776119402" y="1072.0" />
+      <point x="1435.041977611941" y="1072.0" />
+      <point x="66.75" y="116.5" />
+    </edge>
+    <edge source="com.maglor.sharedshoppinglist.controller.UserController" target="com.maglor.sharedshoppinglist.model.LoginForm" relationship="DEPENDENCY">
+      <point x="-51.75" y="-95.0" />
+      <point x="596.3927238805979" y="1608.0" />
+      <point x="245.16697761194132" y="1608.0" />
+      <point x="245.16697761194132" y="1598.0" />
+      <point x="109.5" y="1598.0" />
+      <point x="0.0" y="83.5" />
+    </edge>
+    <edge source="com.maglor.sharedshoppinglist.service.UserService" target="com.maglor.sharedshoppinglist.repository.UserRepository" relationship="TO_ONE">
+      <point x="52.25" y="-106.0" />
+      <point x="827.892723880598" y="1343.0" />
+      <point x="853.6427238805979" y="1343.0" />
+      <point x="853.6427238805979" y="1313.0" />
+      <point x="581.1669776119404" y="1313.0" />
+      <point x="45.0" y="28.0" />
+    </edge>
+    <edge source="com.maglor.sharedshoppinglist.controller.ShoppingListController" target="com.maglor.sharedshoppinglist.dto.ShoppingListDto" relationship="DEPENDENCY">
+      <point x="85.5" y="-84.0" />
+      <point x="1204.642723880598" y="1608.0" />
+      <point x="1124.142723880598" y="1608.0" />
+      <point x="1124.142723880598" y="1598.0" />
+      <point x="1491.6669776119402" y="1598.0" />
+      <point x="1491.6669776119402" y="1072.0" />
+      <point x="1435.041977611941" y="1072.0" />
+      <point x="66.75" y="116.5" />
+    </edge>
+    <edge source="com.maglor.sharedshoppinglist.dto.Mapper" target="com.maglor.sharedshoppinglist.dto.UserInfo" relationship="CREATE">
+      <point x="0.0" y="-83.0" />
+      <point x="937.3927238805969" y="1072.0" />
+      <point x="1162.875" y="1072.0" />
+      <point x="1162.875" y="775.0" />
+      <point x="1309.6669776119402" y="775.0" />
+      <point x="-62.0" y="94.5" />
+    </edge>
+    <edge source="com.maglor.sharedshoppinglist.model.ShoppingList" target="com.maglor.sharedshoppinglist.model.SubShoppingList" relationship="DEPENDENCY">
+      <point x="-66.75" y="-116.5" />
+      <point x="949.125" y="785.0" />
+      <point x="1010.375" y="785.0" />
+      <point x="1010.375" y="491.0" />
+      <point x="738.7919776119404" y="491.0" />
+      <point x="738.7919776119404" y="471.0" />
+      <point x="701.2919776119404" y="471.0" />
+      <point x="-43.0" y="83.5" />
+    </edge>
+    <edge source="com.maglor.sharedshoppinglist.service.ShoppingListService" target="com.maglor.sharedshoppinglist.model.ShoppingList" relationship="DEPENDENCY">
+      <point x="85.49999999999977" y="-95.0" />
+      <point x="1156.6427238805977" y="1343.0" />
+      <point x="1298.8927238805977" y="1343.0" />
+      <point x="1298.8927238805977" y="1293.0" />
+      <point x="1213.6669776119402" y="1293.0" />
+      <point x="1213.6669776119402" y="1082.0" />
+      <point x="1271.1669776119402" y="1082.0" />
+      <point x="1271.1669776119402" y="1062.0" />
+      <point x="1082.625" y="1062.0" />
+      <point x="66.75" y="116.5" />
+    </edge>
+    <edge source="com.maglor.sharedshoppinglist.model.User" target="com.maglor.sharedshoppinglist.model.ShoppingList" relationship="TO_MANY">
+      <point x="75.66666666666663" y="94.5" />
+      <point x="830.4343905472635" y="745.0" />
+      <point x="1021.125" y="745.0" />
+      <point x="1021.125" y="785.0" />
+      <point x="1082.625" y="785.0" />
+      <point x="66.75" y="-116.5" />
+    </edge>
+    <edge source="com.maglor.sharedshoppinglist.model.ShoppingList" target="com.maglor.sharedshoppinglist.model.User" relationship="TO_MANY">
+      <point x="66.75" y="-116.5" />
+      <point x="1082.625" y="785.0" />
+      <point x="1021.125" y="785.0" />
+      <point x="1021.125" y="745.0" />
+      <point x="830.4343905472635" y="745.0" />
+      <point x="75.66666666666663" y="94.5" />
+    </edge>
+    <edge source="com.maglor.sharedshoppinglist.service.UserService" target="com.maglor.sharedshoppinglist.dto.Mapper" relationship="DEPENDENCY">
+      <point x="-52.25" y="-106.0" />
+      <point x="723.392723880598" y="1343.0" />
+      <point x="507.5419776119413" y="1343.0" />
+      <point x="507.5419776119413" y="1333.0" />
+      <point x="947.1427238805978" y="1333.0" />
+      <point x="947.1427238805978" y="1293.0" />
+      <point x="1017.6427238805969" y="1293.0" />
+      <point x="80.25" y="83.0" />
+    </edge>
+    <edge source="com.maglor.sharedshoppinglist.model.SubShoppingList" target="com.maglor.sharedshoppinglist.model.Item" relationship="TO_MANY">
+      <point x="-43.0" y="-83.5" />
+      <point x="701.2919776119404" y="253.0" />
+      <point x="783.5419776119404" y="253.0" />
+      <point x="-46.5" y="116.5" />
+    </edge>
+    <edge source="com.maglor.sharedshoppinglist.repository.ItemRepository" target="com.maglor.sharedshoppinglist.model.Item" relationship="DEPENDENCY">
+      <point x="0.0" y="-50.0" />
+      <point x="958.7919776119404" y="263.0" />
+      <point x="835.0419776119404" y="263.0" />
+      <point x="835.0419776119404" y="253.0" />
+      <point x="876.5419776119404" y="253.0" />
+      <point x="46.5" y="116.5" />
+    </edge>
+    <edge source="com.maglor.sharedshoppinglist.controller.UserController" target="com.maglor.sharedshoppinglist.dto.UserDto" relationship="DEPENDENCY">
+      <point x="-51.75" y="-95.0" />
+      <point x="596.3927238805979" y="1608.0" />
+      <point x="245.16697761194132" y="1608.0" />
+      <point x="245.16697761194132" y="1598.0" />
+      <point x="213.0" y="1598.0" />
+      <point x="-62.0" y="105.5" />
+    </edge>
+    <edge source="com.maglor.sharedshoppinglist.service.ShoppingListService" target="com.maglor.sharedshoppinglist.dto.Mapper" relationship="TO_ONE">
+      <point x="-85.50000000000011" y="-95.0" />
+      <point x="985.6427238805977" y="1343.0" />
+      <point x="982.2677238805978" y="1343.0" />
+      <point x="982.2677238805978" y="1313.0" />
+      <point x="906.7677238805979" y="1313.0" />
+      <point x="906.7677238805979" y="1303.0" />
+      <point x="857.1427238805969" y="1303.0" />
+      <point x="-80.25" y="83.0" />
+    </edge>
+    <edge source="com.maglor.sharedshoppinglist.repository.ShoppingListRepository" target="com.maglor.sharedshoppinglist.model.ShoppingList" relationship="DEPENDENCY">
+      <point x="0.0" y="-15.5" />
+      <point x="1328.6669776119402" y="1082.0" />
+      <point x="1271.1669776119402" y="1082.0" />
+      <point x="1271.1669776119402" y="1062.0" />
+      <point x="1082.625" y="1062.0" />
+      <point x="66.75" y="116.5" />
+    </edge>
+    <edge source="com.maglor.sharedshoppinglist.service.UserService" target="com.maglor.sharedshoppinglist.dto.Mapper" relationship="TO_ONE">
+      <point x="52.25" y="-106.0" />
+      <point x="827.892723880598" y="1343.0" />
+      <point x="853.6427238805979" y="1343.0" />
+      <point x="853.6427238805979" y="1323.0" />
+      <point x="906.7677238805979" y="1323.0" />
+      <point x="906.7677238805979" y="1303.0" />
+      <point x="857.1427238805969" y="1303.0" />
+      <point x="-80.25" y="83.0" />
+    </edge>
+    <edge source="com.maglor.sharedshoppinglist.service.UserService" target="com.maglor.sharedshoppinglist.model.User" relationship="DEPENDENCY">
+      <point x="-52.25" y="-106.0" />
+      <point x="723.392723880598" y="1343.0" />
+      <point x="507.5419776119413" y="1343.0" />
+      <point x="507.5419776119413" y="1303.0" />
+      <point x="636.6669776119404" y="1303.0" />
+      <point x="636.6669776119404" y="785.0" />
+      <point x="459.75000000000006" y="785.0" />
+      <point x="459.75000000000006" y="745.0" />
+      <point x="679.1010572139303" y="745.0" />
+      <point x="-75.66666666666674" y="94.5" />
+    </edge>
+    <edge source="com.maglor.sharedshoppinglist.model.User" target="com.maglor.sharedshoppinglist.model.ShoppingList" relationship="DEPENDENCY">
+      <point x="-75.66666666666674" y="94.5" />
+      <point x="679.1010572139303" y="745.0" />
+      <point x="459.75000000000006" y="745.0" />
+      <point x="459.75000000000006" y="755.0" />
+      <point x="1010.375" y="755.0" />
+      <point x="1010.375" y="785.0" />
+      <point x="949.125" y="785.0" />
+      <point x="-66.75" y="-116.5" />
+    </edge>
+    <edge source="com.maglor.sharedshoppinglist.dto.ShoppingListDto" target="com.maglor.sharedshoppinglist.dto.UserInfo" relationship="TO_MANY">
+      <point x="66.75" y="-116.5" />
+      <point x="1435.041977611941" y="785.0" />
+      <point x="1415.041977611941" y="785.0" />
+      <point x="1415.041977611941" y="775.0" />
+      <point x="1433.6669776119402" y="775.0" />
+      <point x="62.0" y="94.5" />
+    </edge>
+    <edge source="com.maglor.sharedshoppinglist.dto.UserDto" target="com.maglor.sharedshoppinglist.dto.ShoppingListInfo" relationship="DEPENDENCY">
+      <point x="62.0" y="-105.5" />
+      <point x="337.0" y="775.0" />
+      <point x="233.76772388059703" y="775.0" />
+      <point x="0.0" y="105.5" />
+    </edge>
+    <edge source="com.maglor.sharedshoppinglist.model.ShoppingList" target="com.maglor.sharedshoppinglist.model.User" relationship="DEPENDENCY">
+      <point x="-66.75" y="-116.5" />
+      <point x="949.125" y="785.0" />
+      <point x="1010.375" y="785.0" />
+      <point x="1010.375" y="755.0" />
+      <point x="459.75000000000006" y="755.0" />
+      <point x="459.75000000000006" y="745.0" />
+      <point x="679.1010572139303" y="745.0" />
+      <point x="-75.66666666666674" y="94.5" />
+    </edge>
+    <edge source="com.maglor.sharedshoppinglist.service.UserService" target="com.maglor.sharedshoppinglist.dto.UserDto" relationship="DEPENDENCY">
+      <point x="-52.25" y="-106.0" />
+      <point x="723.392723880598" y="1343.0" />
+      <point x="507.5419776119413" y="1343.0" />
+      <point x="507.5419776119413" y="1303.0" />
+      <point x="244.3750000000001" y="1303.0" />
+      <point x="244.3750000000001" y="1082.0" />
+      <point x="213.0" y="1082.0" />
+      <point x="-62.0" y="105.5" />
+    </edge>
+    <edge source="com.maglor.sharedshoppinglist.model.SubShoppingList" target="com.maglor.sharedshoppinglist.model.Item" relationship="DEPENDENCY">
+      <point x="43.0" y="-83.5" />
+      <point x="787.2919776119404" y="263.0" />
+      <point x="835.0419776119404" y="263.0" />
+      <point x="835.0419776119404" y="253.0" />
+      <point x="876.5419776119404" y="253.0" />
+      <point x="46.5" y="116.5" />
+    </edge>
+    <edge source="com.maglor.sharedshoppinglist.dto.Mapper" target="com.maglor.sharedshoppinglist.dto.ShoppingListDto" relationship="CREATE">
+      <point x="0.0" y="-83.0" />
+      <point x="937.3927238805969" y="1072.0" />
+      <point x="1301.541977611941" y="1072.0" />
+      <point x="-66.75" y="116.5" />
+    </edge>
+    <edge source="com.maglor.sharedshoppinglist.controller.ShoppingListController" target="com.maglor.sharedshoppinglist.service.ShoppingListService" relationship="TO_ONE">
+      <point x="-85.5" y="-84.0" />
+      <point x="1033.642723880598" y="1608.0" />
+      <point x="985.6427238805979" y="1608.0" />
+      <point x="-85.5" y="95.0" />
+    </edge>
+    <edge source="com.maglor.sharedshoppinglist.dto.ShoppingListDto" target="com.maglor.sharedshoppinglist.dto.UserInfo" relationship="DEPENDENCY">
+      <point x="-66.75" y="-116.5" />
+      <point x="1301.541977611941" y="785.0" />
+      <point x="1316.142723880598" y="785.0" />
+      <point x="1316.142723880598" y="765.0" />
+      <point x="1371.6669776119402" y="765.0" />
+      <point x="0.0" y="94.5" />
+    </edge>
+    <edge source="com.maglor.sharedshoppinglist.dto.ShoppingListInfo" target="com.maglor.sharedshoppinglist.model.SubShoppingList" relationship="TO_MANY">
+      <point x="66.75" y="-105.5" />
+      <point x="300.51772388059703" y="481.0" />
+      <point x="937.0419776119404" y="481.0" />
+      <point x="937.0419776119404" y="471.0" />
+      <point x="787.2919776119404" y="471.0" />
+      <point x="43.0" y="83.5" />
+    </edge>
+    <edge source="com.maglor.sharedshoppinglist.dto.ShoppingListDto" target="com.maglor.sharedshoppinglist.model.SubShoppingList" relationship="DEPENDENCY">
+      <point x="-66.75" y="-116.5" />
+      <point x="1301.541977611941" y="785.0" />
+      <point x="1316.142723880598" y="785.0" />
+      <point x="1316.142723880598" y="765.0" />
+      <point x="1268.1669776119402" y="765.0" />
+      <point x="1268.1669776119402" y="491.0" />
+      <point x="738.7919776119403" y="491.0" />
+      <point x="738.7919776119404" y="471.0" />
+      <point x="701.2919776119404" y="471.0" />
+      <point x="-43.0" y="83.5" />
+    </edge>
+    <edge source="com.maglor.sharedshoppinglist.service.UserService" target="com.maglor.sharedshoppinglist.model.LoginForm" relationship="DEPENDENCY">
+      <point x="-52.25" y="-106.0" />
+      <point x="723.392723880598" y="1343.0" />
+      <point x="507.5419776119413" y="1343.0" />
+      <point x="507.5419776119413" y="1323.0" />
+      <point x="109.5" y="1323.0" />
+      <point x="0.0" y="83.5" />
+    </edge>
+    <edge source="com.maglor.sharedshoppinglist.dto.ShoppingListInfo" target="com.maglor.sharedshoppinglist.model.SubShoppingList" relationship="DEPENDENCY">
+      <point x="-66.75" y="-105.5" />
+      <point x="167.01772388059703" y="491.0" />
+      <point x="738.7919776119404" y="491.0" />
+      <point x="738.7919776119404" y="471.0" />
+      <point x="701.2919776119404" y="471.0" />
+      <point x="-43.0" y="83.5" />
+    </edge>
+    <edge source="com.maglor.sharedshoppinglist.dto.UserDto" target="com.maglor.sharedshoppinglist.dto.ShoppingListInfo" relationship="TO_MANY">
+      <point x="-62.0" y="-105.5" />
+      <point x="213.0" y="775.0" />
+      <point x="144.76772388059703" y="775.0" />
+      <point x="-89.0" y="105.5" />
+    </edge>
+    <edge source="com.maglor.sharedshoppinglist.dto.ShoppingListDto" target="com.maglor.sharedshoppinglist.model.SubShoppingList" relationship="TO_MANY">
+      <point x="66.75" y="-116.5" />
+      <point x="1435.041977611941" y="785.0" />
+      <point x="1415.041977611941" y="785.0" />
+      <point x="1415.041977611941" y="775.0" />
+      <point x="1475.1669776119402" y="775.0" />
+      <point x="1475.1669776119402" y="481.0" />
+      <point x="937.0419776119403" y="481.0" />
+      <point x="937.0419776119404" y="471.0" />
+      <point x="787.2919776119404" y="471.0" />
+      <point x="43.0" y="83.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.4812398042414356" showDependencies="true" x="754.0" y="909.5000000000001" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

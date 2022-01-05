@@ -1,5 +1,5 @@
 <div class="main-view-container">
-  <mat-toolbar class="app-toolbar">
+  <mat-toolbar class="app-toolbar" color="primary">
     <span>Shared Shopping List</span>
     <span class="spacer"></span>
     <mat-icon>account_circle</mat-icon>
@@ -15,7 +15,10 @@
     </mat-menu>
   </mat-toolbar>
 
-  <app-shopping-list-card *ngFor="let shoppingList of shoppingLists" [shoppingList]="shoppingList"></app-shopping-list-card>
+  <div class="list-card-container">
+    <app-shopping-list-card *ngFor="let shoppingList of shoppingLists"
+                            [shoppingList]="shoppingList"></app-shopping-list-card>
+  </div>
 
   <div class="add-list-button-container">
     <button mat-fab color="primary" (click)="onAddShoppingListClick()">

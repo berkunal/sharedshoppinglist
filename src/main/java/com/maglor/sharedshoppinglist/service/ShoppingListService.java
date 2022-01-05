@@ -1,13 +1,20 @@
 package com.maglor.sharedshoppinglist.service;
 
+import com.maglor.sharedshoppinglist.EmailConfiguration;
 import com.maglor.sharedshoppinglist.dto.Mapper;
 import com.maglor.sharedshoppinglist.dto.ShoppingListDto;
+import com.maglor.sharedshoppinglist.dto.UserInfo;
 import com.maglor.sharedshoppinglist.model.ShoppingList;
 import com.maglor.sharedshoppinglist.repository.ShoppingListRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
+import java.util.List;
+import java.util.Objects;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
@@ -19,6 +26,9 @@ public class ShoppingListService {
     @Autowired
     Mapper mapper;
 
+    @Autowired
+    private EmailConfiguration emailConfiguration;
+
     public List<ShoppingListDto> getShoppingLists() {
         return shoppingListRepository.findAll()
                 .stream()
@@ -28,18 +38,41 @@ public class ShoppingListService {
 
     public ShoppingListDto getShoppingList(UUID id) {
         ShoppingList shoppingList = shoppingListRepository.findById(id).orElse(null);
-        if (shoppingList == null) {
-            return null;
-        }
-        return mapper.toDto(shoppingList);
+        return shoppingList == null ? null : mapper.toDto(shoppingList);
     }
 
     public ShoppingListDto createShoppingList(ShoppingListDto shoppingListDto) {
-        return mapper.toDto(shoppingListRepository.save(mapper.toNewShoppingList(shoppingListDto)));
+        ShoppingList shoppingList = mapper.toNewShoppingList(shoppingListDto);
+        return mapper.toDto(shoppingListRepository.save(shoppingList));
     }
 
     public ShoppingListDto updateShoppingList(ShoppingListDto shoppingListDto) {
-        return mapper.toDto(shoppingListRepository.save(shoppingListRepository.getById(shoppingListDto.getId())));
+        ShoppingListDto historicalDto = mapper.toDto(Objects.requireNonNull(shoppingListRepository.findById(shoppingListDto.getId()).orElse(null)));
+        ShoppingListDto updatedDto = mapper.toDto(shoppingListRepository.save(mapper.toShoppingList(shoppingListDto)));
+
+        UserInfo userInfo = shoppingListDto.getUsers()
+                .stream()
+                .filter(user -> !historicalDto.getUsers().contains(user))
+                .findFirst()
+                .orElse(null);
+
+        if (userInfo != null) {
+            JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
+            mailSender.setHost(this.emailConfiguration.getHost());
+            mailSender.setPort(this.emailConfiguration.getPort());
+            mailSender.setUsername(this.emailConfiguration.getUsername());
+            mailSender.setPassword(this.emailConfiguration.getPassword());
+
+            SimpleMailMessage mailMessage = new SimpleMailMessage();
+            mailMessage.setFrom("noreply@sharedshoppinglist.com");
+            mailMessage.setTo(userInfo.getEmail());
+            mailMessage.setSubject("You have been added to a shopping list!");
+            mailMessage.setText("Hello from Shared Shopping List App");
+
+            mailSender.send(mailMessage);
+        }
+
+        return updatedDto;
     }
 
     public void deleteShoppingList(UUID id) {

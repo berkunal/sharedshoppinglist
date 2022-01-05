@@ -10,6 +10,7 @@ import {UserInfo} from "../model/user-info.model";
 import {first} from "rxjs";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {SnackBarComponent} from "../components/snack-bar/snack-bar.component";
+import {UserService} from "../service/user/user.service";
 
 @Component({
   selector: 'app-main-view',
@@ -24,6 +25,7 @@ export class MainViewComponent implements OnInit {
 
   constructor(
     private shoppingListService: ShoppingListService,
+    private userService: UserService,
     private authService: AuthService,
     private _snackbar: MatSnackBar,
     public dialog: MatDialog
@@ -31,11 +33,11 @@ export class MainViewComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getShoppingLists();
     if (this.authService.userValue) {
       this.username = this.authService.userValue.name;
       this.user = this.authService.userValue;
     }
+    this.getShoppingLists();
   }
 
   onLogoutClick() {
@@ -52,7 +54,6 @@ export class MainViewComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result: AddNewShoppingListForm | undefined) => {
       if (result) {
-        console.log(result)
         const shoppingList: ShoppingListDto = {
           name: result.shoppingListName,
           description: result.description ?? '',
@@ -67,7 +68,7 @@ export class MainViewComponent implements OnInit {
               this.getShoppingLists();
             },
             error: () => {
-              this._snackbar.openFromComponent(SnackBarComponent, {data: 'Something went wrong!'})
+              this._snackbar.openFromComponent(SnackBarComponent, {duration: 3000, data: 'Something went wrong!'})
             }
           });
       }
@@ -75,8 +76,11 @@ export class MainViewComponent implements OnInit {
   }
 
   private getShoppingLists() {
-    this.shoppingListService.getShoppingLists().subscribe(value => {
-      this.shoppingLists = value
-    });
+    if (!this.user) return
+    if (!this.user.id) return
+
+    this.userService.getUserById(this.user.id).subscribe(user => {
+      this.shoppingLists = user.shoppingLists
+    })
   }
 }

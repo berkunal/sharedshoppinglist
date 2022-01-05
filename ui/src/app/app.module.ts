@@ -22,6 +22,7 @@ import { SignupViewComponent } from './signup-view/signup-view.component';
 import { AddNewShoppingListDialogComponent } from './components/add-new-shopping-list-dialog/add-new-shopping-list-dialog.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatBadgeModule} from "@angular/material/badge";
+import { AddUserDialogComponent } from './components/add-user-dialog/add-user-dialog.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import {MatBadgeModule} from "@angular/material/badge";
     LoginViewComponent,
     SnackBarComponent,
     SignupViewComponent,
-    AddNewShoppingListDialogComponent
+    AddNewShoppingListDialogComponent,
+    AddUserDialogComponent
   ],
   imports: [
     BrowserModule,

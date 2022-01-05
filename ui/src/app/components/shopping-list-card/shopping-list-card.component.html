@@ -1,14 +1,24 @@
 <mat-card class="shopping-list-card">
   <mat-card-header>
     <mat-card-title>{{shoppingList?.name}}</mat-card-title>
+    <span class="spacer"></span>
+    <button mat-icon-button color="warn" (click)="onDeleteClick()">
+      <mat-icon mat-card-avatar>delete</mat-icon>
+    </button>
   </mat-card-header>
   <!--  TODO: Assign random patterns or images here  -->
   <img mat-card-image src="https://media.timeout.com/images/105041644/750/422/image.jpg" alt="groceries">
   <mat-card-content>
     <p>{{shoppingList?.description}}</p>
   </mat-card-content>
-  <mat-card-actions>
-    <!--  TODO: User List goes here with + button to add more users   -->
-    <button mat-button>ADD USER</button>
+
+  <mat-card-actions align="end">
+    <div *ngFor="let user of shoppingList?.users" class="user-icon">
+      <mat-icon>account_circle</mat-icon>
+      <p style="margin-bottom: 0">{{ user.name }}</p>
+    </div>
+    <button mat-icon-button color="accent" (click)="onAddUserClick()">
+      <mat-icon mat-card-avatar>add_circle_outline</mat-icon>
+    </button>
   </mat-card-actions>
 </mat-card>
