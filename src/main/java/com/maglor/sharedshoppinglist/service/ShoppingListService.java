@@ -56,13 +56,8 @@ public class ShoppingListService {
                 .findFirst()
                 .orElse(null);
 
+        JavaMailSenderImpl mailSender = getJavaMailSender();
         if (userInfo != null) {
-            JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
-            mailSender.setHost(this.emailConfiguration.getHost());
-            mailSender.setPort(this.emailConfiguration.getPort());
-            mailSender.setUsername(this.emailConfiguration.getUsername());
-            mailSender.setPassword(this.emailConfiguration.getPassword());
-
             SimpleMailMessage mailMessage = new SimpleMailMessage();
             mailMessage.setFrom("noreply@sharedshoppinglist.com");
             mailMessage.setTo(userInfo.getEmail());
@@ -70,9 +65,28 @@ public class ShoppingListService {
             mailMessage.setText("Hello from Shared Shopping List App");
 
             mailSender.send(mailMessage);
+        } else {
+            shoppingListDto.getUsers().forEach(user -> {
+                SimpleMailMessage mailMessage = new SimpleMailMessage();
+                mailMessage.setFrom("noreply@sharedshoppinglist.com");
+                mailMessage.setTo(user.getEmail());
+                mailMessage.setSubject(updatedDto.getName() + " has been updated!");
+                mailMessage.setText("The " + updatedDto.getName() + " list that you are a member of, has been updated!");
+
+                mailSender.send(mailMessage);
+            });
         }
 
         return updatedDto;
+    }
+
+    private JavaMailSenderImpl getJavaMailSender() {
+        JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
+        mailSender.setHost(this.emailConfiguration.getHost());
+        mailSender.setPort(this.emailConfiguration.getPort());
+        mailSender.setUsername(this.emailConfiguration.getUsername());
+        mailSender.setPassword(this.emailConfiguration.getPassword());
+        return mailSender;
     }
 
     public void deleteShoppingList(UUID id) {

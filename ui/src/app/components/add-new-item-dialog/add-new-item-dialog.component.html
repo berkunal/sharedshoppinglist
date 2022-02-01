@@ -1,18 +1,18 @@
 <h1 mat-dialog-title>Add New Item</h1>
 <div mat-dialog-content class="dialog-content">
-  <mat-form-field appearance="fill">
+  <mat-form-field appearance="fill" class="form-item">
     <mat-label>Name of the item</mat-label>
     <input type="text" matInput [(ngModel)]="item.name">
   </mat-form-field>
-  <mat-form-field appearance="fill">
+  <mat-form-field appearance="fill" class="form-item">
     <mat-label>Quantity</mat-label>
     <input type="number" matInput [(ngModel)]="item.quantity">
   </mat-form-field>
-  <mat-form-field appearance="fill">
+  <mat-form-field appearance="fill" class="form-item">
     <mat-label>Unit(optional)</mat-label>
     <input type="text" placeholder="kg, grams etc." matInput [(ngModel)]="item.unit">
   </mat-form-field>
-  <mat-form-field appearance="fill">
+  <mat-form-field appearance="fill" class="form-item">
     <mat-label>Note(optional)</mat-label>
     <input type="text" matInput [(ngModel)]="item.note">
   </mat-form-field>
